@@ -194,8 +194,23 @@
         function showError(error) {
             resetBtn();
             let msg = "خەلەتیەک چێبوو. هیڤی دکەین دووبارە هەول بدە.";
+            
+            // التحقق من نوع الجهاز لتقديم تعليمات مخصصة
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            let deviceInstructions = "";
+
+            if (/android/i.test(userAgent)) {
+                deviceInstructions = "\n\nبۆ ڤەکرنا جهی ل سەر ئەندرۆید:\n١. بچە Settings (رێکخستن)\n٢. پاشان Location (جهـ)\n٣. وێ ڤەکە (On بکە)\n٤. پاشان د براوسەرێ کرۆم دا رێ پێ بدە.";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                deviceInstructions = "\n\nبۆ ڤەکرنا جهی ل سەر ئایفۆن:\n١. بچە Settings (رێکخستن)\n٢. پاشان Privacy (تایبەتمەندی)\n٣. پاشان Location Services\n٤. وێ ڤەکە (On بکە) و رێ ب براوسەری بدە.";
+            } else {
+                deviceInstructions = "\n\nهیڤی دکەین جهێ خۆ (Location) د رێکخستنێن موبایلا خۆ دا ڤەکەن.";
+            }
+
             if(error.code === error.PERMISSION_DENIED) {
-                msg = "تە رێگری ل دیارکرنا جهی کر! هیڤی دکەین رێ بدە (Allow) بۆ وەرگرتنا دیاریێ.";
+                msg = "تە رێگری ل دیارکرنا جهی کر! هیڤی دکەین رێ بدە (Allow) بۆ وەرگرتنا دیاریێ." + deviceInstructions;
+            } else if(error.code === error.POSITION_UNAVAILABLE) {
+                msg = "جهێ تە نەهاتە دیتن. هیڤی دکەین جهێ خۆ (Location) د رێکخستنێن موبایلا خۆ دا ڤەکەن." + deviceInstructions;
             }
             alert(msg);
         }
